@@ -1,4 +1,4 @@
-Shapash : Machine Learning Interpretable & Understandable
+## Shapash : Machine Learning Interpretable & Understandable
 
 Shapash is a Python library which aims to make machine learning interpretable and understandable by everyone. It provides several types of visualization that display explicit labels that everyone can understand.
 
@@ -10,7 +10,7 @@ Shapash works for Regression, Binary Classification or Multiclass problems.
 
 It is compatible with many models: Catboost, Xgboost, LightGBM, Sklearn Ensemble, Linear models, SVM.
 
-Features:
+## Features:
 
 •	Display clear and understandable results: plots and outputs use explicit labels for each feature and its values
 
@@ -26,20 +26,20 @@ Features:
 
 •	Contribute to the auditability of your model by generating a standalone HTML report of your projects.
 
-How Shapash works:
+## How Shapash works:
 
 Shapash is an overlay package for libraries dedicated to the interpretability of models. It uses Shap or Lime backend to compute contributions. Shapash builds on the different steps necessary to build a machine learning model to make the results understandable.
 
-How to use:
+## How to use:
 
-Step 1: Declare SmartExplainer Object
+## Step 1: Declare SmartExplainer Object
 
 You can declare features dict here to specify the labels to display
 
 from shapash.explainer.smart_explainer import SmartExplainer
 SE = SmartExplainer() 
 
-Step 2: Compile Model, Dataset, Encoders
+## Step 2: Compile Model, Dataset, Encoders
 
 There are 2 mandatory parameters in compile method: Model and Dataset
 SE.compile(
@@ -47,7 +47,7 @@ SE.compile(
     model=regressor,
     )
 
-Step 3: Display output
+## Step 3: Display output
 
 There are several outputs and plots available. for example, you can launch the web app.
 
@@ -74,7 +74,7 @@ Each one interacts to help to explore the model easily.
 •	A subset to focus the exploration on this subset
 •	A single row to display the associated local explanation
 
-How to use the Data table to select a subset?
+## How to use the Data table to select a subset?
 
 At the top of the table, just below the name of the column that you want to use to filter, specify:
 =Value, >Value, <Value
@@ -88,7 +88,7 @@ To kill the app:
 
 app.kill()
 
-Step 4: Generate the Shapash Report
+## Step 4: Generate the Shapash Report
 
 This step allows to generate a standalone html report of your project using the different splits of your dataset and the metrics you used.
 
@@ -104,16 +104,16 @@ SE.generate_report(
     metrics=[{'name': 'MSE', 'path': 'sklearn.metrics.mean_squared_error'}]
 )
 
-Step 5: From training to deployment : SmartPredictor Object
+## Step 5: From training to deployment : SmartPredictor Object
 
 Shapash provides a SmartPredictor object to deploy the summary of local explanation for the operational needs. It is an object dedicated to deployment, lighter than SmartExplainer with additional consistency checks. SmartPredictor can be used with an API or in batch mode. It provides predictions, detailed, or summarized local explainability using appropriate wording.
 
 predictor = SE.to_smartpredictor()
 
-## convert prediction into a pickle file
+//convert prediction into a pickle file
 predictor.save('./predictor.pkl')
 
-## load predictor file
+//load predictor file
 predictor_load = load_smartpredictor('./predictor.pkl')
 
 predictor_load.add_input(x=x, ypred=y)
