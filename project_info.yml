@@ -1,0 +1,32 @@
+General information:
+  version: 1
+  name:  Prediction Project
+  purpose: Prediction
+  date: auto
+  contributors: Amit Jain
+  description: This work is a data science project.
+  source code: https://github.com/MAIF/shapash/tree/master/tutorial
+  Git commit: na
+
+Dataset information:
+  path: na
+  origin: na
+  description: na
+  depth: na
+  perimeter: na
+  target variable: csMPa
+  target description: na
+
+Data Preparation:
+  variable filetring: All variables that required special knowledge or previous calculations for their use were removed
+  individual filtering: only the most recent sales data on any property were kept (for houses that were sold multiple times during this period)
+  missing values: were replaced by 0
+  Feature engineering: No feature was created. All features are directly taken from the dataset. Categorical features were transformed using an ordinal encoder.
+  Path to script: na
+
+Model training:
+  Used algorithm: We used a RandomForestRegressor algorithm (scikit-learn) but this model could be challenged with other interesting models such as XGBRegressor, Neural Networks, ...
+  Parameters choice: We did not perform any hyperparameter optimisation. Future works should be planned to perform gridsearch optimizations.
+  Metrics: Mean Squared Error metric
+  Validation strategy: We splitted our data into train (70%) and test (30%)
+  Path to script: na
